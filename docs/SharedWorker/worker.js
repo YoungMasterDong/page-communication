@@ -18,6 +18,6 @@ function ensurePorts(port) {
 
 function disptach(selfPort, data) {
   portList
-    .filter(port => selfPort !== port)
+    .filter(port => selfPort !== port) //仅让另一个窗口接收
     .forEach(port => port.postMessage(data));
 }
