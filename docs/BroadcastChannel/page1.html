@@ -22,12 +22,6 @@
       var btnSend = document.getElementById("btnSend");
       //
       var channel = new BroadcastChannel("channel-BroadcastChannel");
-      channel.addEventListener("message", function(ev) {
-        var msgEl = document.createElement("p");
-        msgEl.innerText =
-          ev.data.date + " " + ev.data.from + ":" + ev.data.message;
-        messagesEle.appendChild(msgEl);
-      });
 
       btnSend.addEventListener("click", function() {
         var message = messageEl.value;
@@ -37,6 +31,14 @@
           from: "page 1"
         });
       });
+      
+      channel.addEventListener("message", function(ev) {
+        var msgEl = document.createElement("p");
+        msgEl.innerText =
+          ev.data.date + " " + ev.data.from + ":" + ev.data.message;
+        messagesEle.appendChild(msgEl);
+      });
+
     </script>
   </body>
 </html>
