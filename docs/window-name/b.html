@@ -1,0 +1,20 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+hello
+<script type="text/javascript">
+    console.log("window.name",window.name);
+    console.log("window.opener.name",window.opener.name);
+    window.opener.name = '窗口A2';
+    window.onclick = function() {
+        console.log("window.name",window.name)
+    }
+    $(window.opener).trigger('click');
+</script>
+</body>
+</html>

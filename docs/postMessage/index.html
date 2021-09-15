@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<div>
+    <input id="text" type="text" value="Runoob" />
+    <button id="sendMessage" >发送消息</button>
+</div>
+<iframe id="receiver" src="./page2.html" width="300" height="360">
+    <p>你的浏览器不支持 iframe。</p>
+</iframe>
+<script>
+window.onload = function() {
+    var receiver = document.getElementById('receiver').contentWindow;
+    var btn = document.getElementById('sendMessage');
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var val = document.getElementById('text').value;
+        receiver.postMessage("Hello "+val+"！", "http://localhost:52330");
+    });
+}
+</script>
+</body>
+</html>

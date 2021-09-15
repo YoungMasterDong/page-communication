@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 这个标签页是用来接收信息的 -->
+    <h1>
+      收到的消息:
+      <p id="recMsg"></p>
+    </h1>
+    <script>
+      //建立到服务端webSoket连接
+      var ws = new WebSocket("ws://localhost:8080");
+      //当连接被打开时，注册接收消息的处理函数
+      
+      ws.onopen = function (event) {
+        console.log('客户端（client）：与服务器的连接已打开')
+        //当有消息发过来时，就将消息放到显示元素上
+        ws.onmessage = function (event1) {
+          console.log(event1)
+          recMsg.innerHTML = event1.data;
+        };
+      };
+    </script>
+  </body>
+</html>

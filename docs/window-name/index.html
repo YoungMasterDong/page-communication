@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script>
+var myWindow;
+function openWin(){
+	myWindow=window.open('','新窗口','width=500,height=500,left=300,top=300');
+	myWindow.document.write("<p>窗口名称为: " + myWindow.name + "</p>");
+}
+</script>
+</head>
+<body>
+
+<input type="button" value="打开我的窗口" onclick="openWin()" />
+
+</body>
+</html>

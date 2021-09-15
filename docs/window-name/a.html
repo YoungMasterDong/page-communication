@@ -1,0 +1,28 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<a href="javascript:void 0;" id="click">click</a>
+<script type="text/javascript">
+    window.name = '窗口A';
+    document.getElementById('click').onclick = function(event) {
+        open = window.open('b.html');
+        open.name = '窗口B';
+        // window.location.href = "./b.html"
+        event.stopPropagation()
+        return false;
+    };
+    window.onclick = function(){
+        console.log("window.name",window.name);
+        open.name ='窗口A2'
+        $(open).trigger('click')
+    }
+//     1.首先可以在网页a里对网页b的tmp.name进行数据赋值，然后在b里通过window.name进行访问。或者在网页a里对自身的window.name进行赋值，然后在b里用window.opener.name进行访问。这种可用于在某个网页中打开新网页，然后进行数据单向的通信。
+// 2.如果需要在两个网页间进行通信，那么可以在网页a,b里绑定一种事件，这里绑定的是点击事件，然后在各自的网页里进行触发。事件冒泡什么的这些细节可能需要注意一下。
+</script>
+</body>
+</html>

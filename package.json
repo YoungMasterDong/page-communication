@@ -1,0 +1,17 @@
+{
+  "name": "page-communication",
+  "version": "1.0.0",
+  "description": "补充一下，这里的通讯指遵守同源策略情况下。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.2.2"
+  }
+}
