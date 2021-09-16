@@ -23,6 +23,7 @@
       var btnSend = document.getElementById("btnSend");
       //
       var channel = new BroadcastChannel("channel-BroadcastChannel");
+      
       channel.addEventListener("message", function(ev) {
         var msgEl = document.createElement("p");
         msgEl.innerText = ev.data.date + " " + ev.data.from + ":" + ev.data.message;

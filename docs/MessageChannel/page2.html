@@ -19,6 +19,7 @@
   window.addEventListener('message', onMessage);
   
   function onMessage(e) {
+    console.log(e);
   	output.innerHTML = e.data;
     // Use the transfered port to post a message back to the main frame
   	e.ports[0].postMessage('Message back from the IFrame');

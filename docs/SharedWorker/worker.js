@@ -1,6 +1,7 @@
 var portList = [];
 
 onconnect = function(e) {
+  console.log(e)
   var port = e.ports[0];
   ensurePorts(port);
   port.onmessage = function(e) {

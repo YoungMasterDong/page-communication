@@ -24,6 +24,7 @@
     iframe.addEventListener("load", onLoad);
 
     function onLoad() {
+      console.log(channel.port1,channel.port2)
       // Listen for messages on port1
       channel.port1.onmessage = onMessage;
       // Transfer port2 to the iframe

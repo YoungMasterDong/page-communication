@@ -22,6 +22,19 @@
       var btnSend = document.getElementById("btnSend");
       var lastMessage = null;
 
+      btnSend.addEventListener("click", function() {
+        var message = messageEl.value;
+
+        sessionStorage.setItem(
+          "ls-message2",
+          JSON.stringify({
+            date: Date.now(),
+            message,
+            from: "page 2"
+          })
+        );
+      });
+
       setInterval(() => {
         var message = sessionStorage.getItem("ls-message1");
         try {
@@ -35,7 +48,7 @@
         } catch (err) {
           console.log(err);
         }
-      }, 200);
+      }, 500);
 
       function appendMessage(data) {
         var msgEl = document.createElement("p");
@@ -43,18 +56,6 @@
         messagesEle.appendChild(msgEl);
       }
 
-      btnSend.addEventListener("click", function() {
-        var message = messageEl.value;
-
-        sessionStorage.setItem(
-          "ls-message2",
-          JSON.stringify({
-            date: Date.now(),
-            message,
-            from: "page 2"
-          })
-        );
-      });
     </script>
   </body>
 </html>

@@ -37,9 +37,6 @@
 
         btnSend.addEventListener("click", function() {
           var message = messageEl.value;
-
-          var message = messageEl.value;
-
           myWorker.port.postMessage({
             date: new Date().toLocaleString(),
             message,
